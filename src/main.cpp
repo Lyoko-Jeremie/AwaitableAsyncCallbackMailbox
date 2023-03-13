@@ -153,12 +153,12 @@ int main() {
 
     auto ioc = boost::asio::io_context{};
 
-    auto maillbox = boost::make_shared<ABMailbox::element_type>(
+    auto mailbox = boost::make_shared<ABMailbox::element_type>(
             ioc, ioc, "ABMailbox"
     );
 
-    boost::asio::co_spawn(ioc, [maillbox] {
-        return a(maillbox);
+    boost::asio::co_spawn(ioc, [mailbox] {
+        return a(mailbox);
     }, [](std::exception_ptr e, bool n) {
 
         // https://stackoverflow.com/questions/14232814/how-do-i-make-a-call-to-what-on-stdexception-ptr
